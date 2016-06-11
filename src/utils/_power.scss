@@ -2,8 +2,12 @@
   $ret: 1;
 
   @if $n >= 0 {
-    @for $i from 1 through $n {
-      $ret: $ret * $x;
+    @if $n > 0 {
+      @for $i from 1 through $n {
+        $ret: $ret * $x;
+      }
+    } @else {
+      @return 1;
     }
   } @else {
     @for $i from $n to 0 {
