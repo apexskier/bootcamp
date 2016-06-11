@@ -8,56 +8,42 @@
     "scss",
     "test",
     "jasmine",
-    "gruntplugin",
-    "bower"
+    "unit test"
   ],
-  "homepage": "https://github.com/thejameskyle/bootcamp",
-  "bugs": "https://github.com/thejameskyle/bootcamp/issues",
+  "homepage": "https://github.com/apexskier/bootcamp",
+  "bugs": "https://github.com/apexskier/bootcamp/issues",
   "author": {
-    "name": "James Kyle",
-    "email": "me@thejameskyle.com",
-    "url": "https://github.com/thejameskyle"
+    "name": "Cameron Little",
+    "email": "cameron@camlittle.com",
+    "url": "https://github.com/apexskier"
   },
   "contributors": [
     {
       "name": "James Kyle",
       "email": "me@thejameskyle.com",
       "url": "https://github.com/thejameskyle"
+    },
+    {
+      "name": "Cameron Little",
+      "email": "cameron@camlittle.com",
+      "url": "https://github.com/apexskier"
     }
   ],
   "main": "dist/bootcamp.coffee",
   "repository": {
     "type": "git",
-    "url": "git://github.com/thejameskyle/bootcamp.git"
+    "url": "git://github.com/apexskier/bootcamp.git"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "node-sass test.scss -o /dev/null"
   },
-  "files": [
-    "dist/",
-    "tasks/"
-  ],
   "bin": {},
-  "dependencies": {
-    "colors": "^0.6.2"
-  },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.0",
-    "grunt-contrib-watch": "^0.6.1"
-  },
-  "peerDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.0"
+    "node-sass": "^3.7.0"
   },
   "engines": {
     "node": ">=0.8.0",
     "npm": ">=1.2.10"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/thejameskyle/bootcamp/blob/master/LICENSE.md"
-    }
-  ]
+  "license": "MIT"
 }
