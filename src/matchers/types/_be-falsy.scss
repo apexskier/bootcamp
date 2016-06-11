@@ -1,3 +1,6 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/should";
+
 @function be-falsy() {
   @return should("be", "falsy", not actual());
 }

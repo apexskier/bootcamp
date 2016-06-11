@@ -1,3 +1,7 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/should";
+@import "../../utils/equal";
+
 @function be($value) {
   @return should("be", $value, bc-util-equal( actual(), $value ) );
 }

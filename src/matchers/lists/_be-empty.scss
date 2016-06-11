@@ -1,3 +1,6 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/should";
+
 @function be-empty() {
   @return should("be", "empty", actual() == ());
 }

@@ -1,3 +1,8 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/error";
+@import "../../core/functions/should";
+@import "../../utils/power";
+
 @function be-close-to($this, $precision) {
   $actual: actual();
   $when: false;

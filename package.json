@@ -35,7 +35,7 @@
     "url": "git://github.com/apexskier/bootcamp.git"
   },
   "scripts": {
-    "test": "node-sass test.scss -o /dev/null"
+    "test": "node-sass --include-path src test/specs.scss"
   },
   "bin": {},
   "devDependencies": {
