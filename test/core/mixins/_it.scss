@@ -2,4 +2,16 @@
   @include it("should create a new test") {
     @include should(null, true);
   }
+
+  @include it("should create tests with 'quotes' in description") {
+    @include should(null, true);
+  }
+
+  @include it("should create tests with numbers like 1, 2, or 3 in description") {
+    @include should(null, true);
+  }
+
+  @include it("should create tests with emoji in description 😅") {
+    @include should(null, true);
+  }
 }
