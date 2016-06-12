@@ -1,4 +1,4 @@
-language: node_js
+language: sass
 node_js:
   - node
   - '6'
@@ -6,3 +6,9 @@ node_js:
   - '4'
   - '0.12'
   - '0.10'
+before_install:
+  - gem install sass
+
+script:
+  - node-sass --include-path src test/specs.scss
+  - sass --load-path src test/specs.scss
