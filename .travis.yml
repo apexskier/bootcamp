@@ -1,8 +1,8 @@
 env:
-  - GEM_VERSION="~> 3.0"
-  - GEM_VERSION="~> 3.4"
-  - GEM_VERSION="~> 3.3"
-  - GEM_VERSION="~> 3.2"
+  - TEST_SASS_VERSION="~> 3.0"
+  - TEST_SASS_VERSION="~> 3.4"
+  - TEST_SASS_VERSION="~> 3.3"
+  - TEST_SASS_VERSION="~> 3.2"
   - NODE_SASS_VERSION=latest
   - NODE_SASS_VERSION="~3.7.0"
   - NODE_SASS_VERSION="~3.6.0"
@@ -10,9 +10,8 @@ env:
   - NODE_SASS_VERSION="~3.4.0"
 
 before_install:
-  - test -n ${NODE_SASS_VERSION} && npm install node-sass@"${NODE_SASS_VERSION}"
-  - test -n "$GEM_VERSION" && gem install sass -v "${GEM_VERSION}"
+  - test -n "${NODE_SASS_VERSION}" && npm install node-sass@"${NODE_SASS_VERSION}" || exit 0
+  - test -n "${TEST_SASS_VERSION}" && gem install sass -v "${TEST_SASS_VERSION}" || exit 0
 
 script:
-  - test -n ${NODE_SASS_VERSION} && node-sass --include-path src test/specs.scss
-  - test -n "$GEM_VERSION" && sass --load-path src test/specs.scss
+  - test.sh
