@@ -17,19 +17,6 @@
     "email": "cameron@camlittle.com",
     "url": "https://github.com/apexskier"
   },
-  "contributors": [
-    {
-      "name": "James Kyle",
-      "email": "me@thejameskyle.com",
-      "url": "https://github.com/thejameskyle"
-    },
-    {
-      "name": "Cameron Little",
-      "email": "cameron@camlittle.com",
-      "url": "https://github.com/apexskier"
-    }
-  ],
-  "main": "dist/bootcamp.coffee",
   "repository": {
     "type": "git",
     "url": "git://github.com/apexskier/bootcamp.git"
@@ -37,7 +24,6 @@
   "scripts": {
     "test": "node-sass --include-path src test/specs.scss"
   },
-  "bin": {},
   "devDependencies": {
     "node-sass": "^3.7.0"
   },
