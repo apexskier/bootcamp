@@ -1,7 +1,9 @@
 @import "bootcamp";
 
-$bc-setting-verbose:  false;
-$bc-setting-warnings: false;
+$bc-setting-verbose:     false;
+$bc-setting-warnings:    false;
+$bc-setting-return-code: true;
+$bc-setting-fail-fast:   true;
 
 @include runner-start;
 

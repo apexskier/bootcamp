@@ -1,2 +1,11 @@
-$bc-setting-verbose:  false !default;
-$bc-setting-warnings: false !default;
+// Print information about all tests
+$bc-setting-verbose:     false !default;
+
+// Print bootcamp warning messages
+$bc-setting-warnings:    false !default;
+
+// Exit with a return code if failures, output printed as json on stderr
+$bc-setting-return-code: false !default;
+
+// Exit with a return code on first failure, output printed as json on stderr
+$bc-setting-fail-fast:   false !default;
