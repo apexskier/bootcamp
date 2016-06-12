@@ -8,9 +8,7 @@
   $when: true;
 
   @if type-of($actual) == map {
-    $actual-keys: map-keys($actual);
-
-    @if length($actual-keys) != length($keys) {
+    @if length(map-keys($actual)) != length($keys) {
       $when: false;
       @if length($keys) == 0 {
         $be: "have no keys";
@@ -19,8 +17,8 @@
     }
 
     @else {
-      @each $key in $actual-keys {
-        @if index($keys, $key) == null {
+      @each $key in $keys {
+        @if not map-has-key($actual, $key) {
           $when: false;
         }
       }

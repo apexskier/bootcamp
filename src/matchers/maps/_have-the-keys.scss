@@ -6,10 +6,8 @@
   $when: true;
 
   @if type-of($actual) == map {
-    $actual-keys: map-keys($actual);
-
     @each $key in $keys {
-      @if index($actual-keys, $key) == null {
+      @if not map-has-key($actual, $key) {
         $when: false;
       }
     }
