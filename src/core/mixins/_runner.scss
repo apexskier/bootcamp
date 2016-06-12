@@ -16,27 +16,16 @@
     Passed:  #{ $bc-passed  };
     Failed:  #{ $bc-failed  };
     Skipped: #{ $bc-skipped };
-  $bc-messages: "#{$bc-messages}
-
-Test Results {
-  Success: #{$bc-failed == 0};
-  Stats:   #{ $bc-stats   };
-  Tests:   #{ $bc-total   };
-  Asserts: #{ $bc-asserts };
-  Passed:  #{ $bc-passed  };
-  Failed:  #{ $bc-failed  };
-  Skipped: #{ $bc-skipped };" !global;
+  $bc-messages: "#{$bc-messages}\a\aTest Results {\a  Success: #{$bc-failed == 0};\a  Stats:   #{ $bc-stats   };\a  Tests:   #{ $bc-total   };\a  Asserts: #{ $bc-asserts };\a  Passed:  #{ $bc-passed  };\a  Failed:  #{ $bc-failed  };\a  Skipped: #{ $bc-skipped };" !global;
 
     @if $bc-errors != () and $bc-setting-warnings {
       @each $error in $bc-errors {
         Error: #{$error};
-        $bc-messages: "#{$bc-messages}
-  Error: #{$error};" !global;
+        $bc-messages: "#{$bc-messages}\a  Error: #{$error};" !global;
       }
     }
   }
-  $bc-messages: "#{$bc-messages}
-}" !global;
+  $bc-messages: "#{$bc-messages}\a}" !global;
 
   /* << Bootcamp << */
 
