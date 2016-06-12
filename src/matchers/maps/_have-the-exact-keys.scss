@@ -1,0 +1,34 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/should";
+
+@function have-the-exact-keys($keys) {
+  $actual: actual();
+  $be: "have the exact keys";
+  $something: $keys;
+  $when: true;
+
+  @if type-of($actual) == map {
+    $actual-keys: map-keys($actual);
+
+    @if length($actual-keys) != length($keys) {
+      $when: false;
+      @if length($keys) == 0 {
+        $be: "have no keys";
+        $something: null;
+      }
+    }
+
+    @else {
+      @each $key in $actual-keys {
+        @if index($keys, $key) == null {
+          $when: false;
+        }
+      }
+    }
+  }
+  @else {
+    $when: error("type", "The `have-the-exact-keys` matcher is only for maps");
+  }
+
+  @return should($be, $something, $when);
+}

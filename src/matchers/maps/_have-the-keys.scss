@@ -1,0 +1,26 @@
+@import "../../core/functions/actual";
+@import "../../core/functions/should";
+
+@function have-the-keys($keys) {
+  $actual: actual();
+  $when: true;
+
+  @if type-of($actual) == map {
+    $actual-keys: map-keys($actual);
+
+    @each $key in $keys {
+      @if index($actual-keys, $key) == null {
+        $when: false;
+      }
+    }
+  }
+  @else {
+    $when: error("type", "The `have-the-key(s)` matcher is only for maps");
+  }
+
+  @return should("have the keys", $keys, $when);
+}
+
+@function have-the-key($key) {
+  @return have-the-keys(($key));
+}

@@ -33,6 +33,9 @@
 @import "matchers/lists/deep-contain";
 @import "matchers/lists/have-length-of";
 
+@import "matchers/maps/have-the-exact-keys";
+@import "matchers/maps/have-the-keys";
+
 @import "matchers/numbers/be-close-to";
 @import "matchers/numbers/be-greater-than";
 @import "matchers/numbers/be-less-than";

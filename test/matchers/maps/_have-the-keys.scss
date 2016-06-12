@@ -1,0 +1,41 @@
+@include describe("Have the keys") {
+  @include it("should expect maps to have keys") {
+    @include should( expect( (a: 1, b: 2, c: 3) ), to( have-the-keys((a, b, c))));
+    @include should( expect( (a: 1)             ), to( have-the-keys((a))));
+  }
+
+  @include it("should expect maps to have a subset of keys") {
+    @include should( expect( (a: 1, b: 2, c: 3) ), to( have-the-keys((a, b))));
+  }
+
+  @include it("should expect maps to have keys with different separators") {
+    @include should( expect( (a: 1, b: 2, c: 3) ), to( have-the-keys((a, b))));
+    @include should( expect( (a: 1, b: 2, c: 3) ), to( have-the-keys((a b))));
+  }
+
+  @include it("should expect maps to not have keys") {
+    @include should( expect( (a: 1, b: 2, c: 3) ), not-to( have-the-keys((c, d))));
+    @include should( expect( (a: 1)             ), not-to( have-the-keys((d))));
+  }
+
+  @include it("should expect other values to not have keys") {
+    @include should( expect( null     ), not-to( have-the-keys((a, b))));
+    @include should( expect( false    ), not-to( have-the-keys((a, b))));
+    @include should( expect( "string" ), not-to( have-the-keys((a, b))));
+  }
+
+  @include it("should expect other values to not have no keys") {
+    @include should( expect( null     ), not-to( have-the-keys(())));
+    @include should( expect( false    ), not-to( have-the-keys(())));
+    @include should( expect( "string" ), not-to( have-the-keys(())));
+  }
+}
+
+@include describe("Have the key (singular)") {
+  @include it("should work like `have-the-keys`") {
+    @include should( expect( (a: 1, b: 2, c: 3) ), to( have-the-key(a)));
+    @include should( expect( (a: 1)             ), to( have-the-key(a)));
+    @include should( expect( (a: 1, b: 2, c: 3) ), not-to( have-the-key(d)));
+    @include should( expect( (a: 1)             ), not-to( have-the-key(d)));
+  }
+}
