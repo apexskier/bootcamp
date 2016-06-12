@@ -116,7 +116,7 @@
     $b: (d: 1, e: 2, f: 3);
     $c: (a: 1, b: 2, c: 3, d: 1, e: 2, f: 3);
 
-    @include should(expect(map-merge($a, $b)), to( be( $c )));
+    @include should(expect( map-merge($a, $b) ), to( be( $c )));
   }
 
   @include it("should expect two unequal maps built with map-merge not to be equal") {
@@ -124,6 +124,6 @@
     $b: (d: 1, e: 2, f: 3);
     $c: (a: 1, b: 2, c: 3, d: 1, e: 2, f: 3);
 
-    @include should(expect(map-merge($a, $b)), not-to( be( (a: 1, b: 2, c: 3, d: 1, e: 3) )));
+    @include should(expect( map-merge($a, $b) ), not-to( be( (a: 1, b: 2, c: 3, d: 1, e: 3) )));
   }
 }
