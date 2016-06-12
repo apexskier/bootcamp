@@ -7,20 +7,40 @@
     @return false;
   }
 
-  @for $i from 1 through length($value-1) {
+  @if type-of($value-1) == map {
+    @if length(map-keys($value-1)) != length(map-keys($value-2)) {
+      @return false;
+    }
 
-    @if $recursive
-    and type-of( nth($value-1, $i) ) == list
-    and type-of( nth($value-2, $i) ) == list {
+    @each $key in map-keys($value-1) {
+      @if $recursive {
+        @if not bc-util-equal(map-get($value-1, $key), map-get($value-2, $key)) {
+          @return false;
+        }
+      }
 
-      @if not bc-util-equal(nth($value-1, $i), nth($value-2, $i)) {
+      @else if map-get($value-1, $key) != map-get($value-2, $key) {
         @return false;
       }
     }
+  }
 
-    @else if nth($value-1, $i) != nth($value-2, $i){
-      @return false;
+  @else if type-of($value-1) == list {
+    @for $i from 1 through length($value-1) {
+      @if $recursive {
+        @if not bc-util-equal(nth($value-1, $i), nth($value-2, $i)) {
+          @return false;
+        }
+      }
+
+      @else if nth($value-1, $i) != nth($value-2, $i){
+        @return false;
+      }
     }
+  }
+
+  @else if $value-1 != $value-2 {
+    @return false;
   }
 
   @return true;

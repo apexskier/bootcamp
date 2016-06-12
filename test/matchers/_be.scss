@@ -105,7 +105,7 @@
     @include should(expect( (a: false, b: true, c: false) ), not-to( be( (a: true, b: false, c: true) )));
   }
 
-  @include xit("should expect two equal maps with different orders to be equal") {
+  @include it("should expect two equal maps with different orders to be equal") {
     @include should(expect( (a: 1, b: 2, c: 3) ),           to( be( (b: 2, a: 1, c: 3) )));
     @include should(expect( (a: "a", b: "b", c: "c") ),     to( be( (b: "b", a: "a", c: "c") )));
     @include should(expect( (a: true, b: false, c: true) ), to( be( (b: false, a: true, c: true) )));
