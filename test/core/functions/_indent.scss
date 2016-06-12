@@ -1,0 +1,7 @@
+@include describe("Indent") {
+  @include it("should prepend characters to strings") {
+    @include should( expect( indent("hello", 2) ), to( be( "  hello" )));
+    @include should( expect( indent("hello", 0) ), to( be( "hello" )));
+    @include should( expect( indent("hello", 1, ",") ), to( be( ",hello" )));
+  }
+}

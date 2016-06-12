@@ -1,0 +1,7 @@
+@function indent($string, $number, $char: " ") {
+  $str: $string;
+  @for $_ from 0 to $number {
+    $str: "#{$char}#{$str}";
+  }
+  @return $str;
+}

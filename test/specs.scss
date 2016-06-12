@@ -13,6 +13,7 @@ $bc-setting-warnings: false;
 
 @import "core/functions/actual";
 @import "core/functions/expect";
+@import "core/functions/indent";
 @import "core/functions/not-to";
 @import "core/functions/should";
 @import "core/functions/to";
