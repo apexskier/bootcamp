@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 if [ -n "${NODE_SASS_VERSION}" ]
 then
