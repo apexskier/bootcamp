@@ -29,7 +29,13 @@
     @include should( expect( false ), not-to( be( true )));
   }
 
-  @include it("should expect two equal lists to be equal") {
+  @include it("should expect different types not to be equal") {
+    @include should( expect( 1    ), not-to( be( "1"    )));
+    @include should( expect( true ), not-to( be( "true" )));
+    @include should( expect( 1    ), not-to( be( (1,)   )));
+  }
+
+  @include it("should expect two equal maps to be equal") {
     @include should(expect( (1, 2, 3) ),           to( be( (1, 2, 3) )));
     @include should(expect( ("a", "b", "c") ),     to( be( ("a", "b", "c") )));
     @include should(expect( (true, false, true) ), to( be( (true, false, true) )));

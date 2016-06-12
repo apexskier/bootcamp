@@ -1,4 +1,8 @@
 @function bc-util-equal($value-1, $value-2, $recursive: true) {
+  @if type-of($value-1) != type-of($value-2) {
+    @return false;
+  }
+
   @if length($value-1) != length($value-2) {
     @return false;
   }
