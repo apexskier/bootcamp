@@ -92,5 +92,38 @@
     @include should(expect($strings-out ), not-to( be( ("c", "b", "a") )));
     @include should(expect($booleans-out), not-to( be( (false, true, false) )));
   }
-}
 
+  @include it("should expect two equal maps to be equal") {
+    @include should(expect( (a: 1, b: 2, c: 3) ),           to( be( (a: 1, b: 2, c: 3) )));
+    @include should(expect( (a: "a", b: "b", c: "c") ),     to( be( (a: "a", b: "b", c: "c") )));
+    @include should(expect( (a: true, b: false, c: true) ), to( be( (a: true, b: false, c: true) )));
+  }
+
+  @include it("should expect two unequal maps not to be equal") {
+    @include should(expect( (a: 3, b: 2, c: 1) ),            not-to( be( (a: 1, b: 2, c: 3) )));
+    @include should(expect( (a: "c", b: "b", c: "a") ),      not-to( be( (a: "a", b: "b", c: "c") )));
+    @include should(expect( (a: false, b: true, c: false) ), not-to( be( (a: true, b: false, c: true) )));
+  }
+
+  @include xit("should expect two equal maps with different orders to be equal") {
+    @include should(expect( (a: 1, b: 2, c: 3) ),           to( be( (b: 2, a: 1, c: 3) )));
+    @include should(expect( (a: "a", b: "b", c: "c") ),     to( be( (b: "b", a: "a", c: "c") )));
+    @include should(expect( (a: true, b: false, c: true) ), to( be( (b: false, a: true, c: true) )));
+  }
+
+  @include it("should expect two equal maps built with map-merge to be equal") {
+    $a: (a: 1, b: 2, c: 3);
+    $b: (d: 1, e: 2, f: 3);
+    $c: (a: 1, b: 2, c: 3, d: 1, e: 2, f: 3);
+
+    @include should(expect(map-merge($a, $b)), to( be( $c )));
+  }
+
+  @include it("should expect two unequal maps built with map-merge not to be equal") {
+    $a: (a: 1, b: 2, c: 3);
+    $b: (d: 1, e: 2, f: 3);
+    $c: (a: 1, b: 2, c: 3, d: 1, e: 2, f: 3);
+
+    @include should(expect(map-merge($a, $b)), not-to( be( (a: 1, b: 2, c: 3, d: 1, e: 3) )));
+  }
+}
