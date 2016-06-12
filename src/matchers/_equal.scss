@@ -1,5 +1,5 @@
-@import "../../core/functions/actual";
-@import "../../core/functions/should";
+@import "../core/functions/actual";
+@import "../core/functions/should";
 
 @function equal($value) {
   @return should("equal", $value, actual() == $value);
