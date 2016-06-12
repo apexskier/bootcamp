@@ -10,8 +10,7 @@ env:
   - NODE_SASS_VERSION="~3.4.0"
 
 before_install:
-  - test -n "${NODE_SASS_VERSION}" && npm install node-sass@"${NODE_SASS_VERSION}" || exit 0
-  - test -n "${TEST_SASS_VERSION}" && gem install sass -v "${TEST_SASS_VERSION}" || exit 0
-
+  - travis/install.sh
+  
 script:
-  - test.sh
+  - travis/test.sh
