@@ -44,4 +44,6 @@ $bc-setting-fail-fast:   true;
 @import "matchers/types/be-truthy";
 @import "matchers/types/have-type-of";
 
+@import "failures";
+
 @include runner-end;

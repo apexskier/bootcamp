@@ -1,0 +1,6 @@
+// just testing travis. this shouldn't get merged
+@include describe("Failure suite") {
+  @include it("should fail each assertion") {
+    @include should(expect( true ), to( be( false )));
+  }
+}
