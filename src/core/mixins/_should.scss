@@ -21,18 +21,11 @@
     $indentation: ($bc-describe-depth - 1) * 2;
 
     @if $bc-error-text {
-      #{$status}:
-        #{$bc-error-text}
-        #{$bc-actual-text} #{$bc-actual}
-        #{$bc-expect-text} #{$bc-expect};
-      $bc-block-messages: "#{$bc-block-messages}
-#{indent("#{$status}: #{$bc-error-text} #{$bc-actual-text} #{$bc-actual} #{$bc-expect-text} #{$bc-expect};", $indentation)}" !global;
+      /* #{$status}: "#{$bc-error-text} #{$bc-actual-text} $bc-actual #{$bc-expect-text} $bc-expect"; */
+      $bc-block-messages: "#{$bc-block-messages}\a#{indent("#{$status}: #{$bc-error-text} #{$bc-actual-text} $bc-actual #{$bc-expect-text} $bc-expect;", $indentation)}" !global;
     } @else {
-      #{$status}:
-        #{$bc-actual-text} #{$bc-actual}
-        #{$bc-expect-text} #{$bc-expect};
-      $bc-block-messages: "#{$bc-block-messages}
-#{indent("#{$status}: #{$bc-actual-text} #{$bc-actual} #{$bc-expect-text} #{$bc-expect};", $indentation)}" !global;
+      /* #{$status}: "#{$bc-actual-text} $bc-actual #{$bc-expect-text} $bc-expect"; */
+      $bc-block-messages: "#{$bc-block-messages}\a#{indent("#{$status}: #{$bc-actual-text} $bc-actual #{$bc-expect-text} $bc-expect;", $indentation)}" !global;
     }
   }
 
