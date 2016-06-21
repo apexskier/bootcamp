@@ -13,8 +13,7 @@
       @if $bc-passing {
         @if $bc-setting-verbose {
           Test: Passed;
-        $bc-block-messages: "#{$bc-block-messages}
-#{indent("  Test: Passed;", $indention)}" !global;
+        $bc-block-messages: "#{$bc-block-messages}\a#{indent("  Test: Passed;", $indention)}" !global;
         }
 
         $bc-stats: "#{$bc-stats} ✔" !global;
@@ -23,19 +22,16 @@
 
       @else {
         Test: Failed;
-        $bc-block-messages: "#{$bc-block-messages}
-#{indent("  Test: Failed;", $indention)}" !global;
+        $bc-block-messages: "#{$bc-block-messages}\a#{indent("  Test: Failed;", $indention)}" !global;
 
         $bc-stats: "#{$bc-stats} ✗" !global;
         $bc-failed: $bc-failed + 1 !global;
       }
 
-      $bc-block-messages: "#{$bc-block-messages}
-#{indent("}", $indention)}" !global;
+      $bc-block-messages: "#{$bc-block-messages}\a#{indent("}", $indention)}" !global;
 
       @if not $bc-passing or $bc-setting-verbose {
-        $bc-messages: "#{$bc-messages}
-#{$bc-block-messages}" !global;
+        $bc-messages: "#{$bc-messages}\a#{$bc-block-messages}" !global;
       }
 
       @if $bc-setting-fail-fast and not $bc-passing {
