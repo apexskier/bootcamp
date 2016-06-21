@@ -2,4 +2,10 @@
   @include it("should run a test") {
     @include should(null, true);
   }
+
+  @include it("should accept a content block for failures") {
+    @include should(null, true) {
+      // content block
+    };
+  }
 }

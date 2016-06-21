@@ -16,6 +16,11 @@
 
     @if $bc-passing {
       $status: " ✔";
+    } @else {
+      @if $bc-error-text {
+        /* #{$bc-error-text} */
+      }
+      @content;
     }
 
     $indentation: ($bc-describe-depth - 1) * 2;
