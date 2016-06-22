@@ -126,4 +126,9 @@
 
     @include should(expect( map-merge($a, $b) ), not-to( be( (a: 1, b: 2, c: 3, d: 1, e: 3) )));
   }
+
+  @include it("should expect colors within rgb precision to be equal") {
+    @include should(expect(rgb(212, 88, 54)), to(be(#d45836)));
+    @include should(expect(rgb(212.0012, 88, 54)), to(be(#d45836)));
+  }
 }

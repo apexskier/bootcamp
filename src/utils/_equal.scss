@@ -39,6 +39,14 @@
     }
   }
 
+  @else if type-of($value-1) == color {
+    @if round(red($value-1)) != round(red($value-2)) or
+    round(green($value-1)) != round(green($value-2)) or
+    round(blue($value-1)) != round(blue($value-2)) {
+      @return false;
+    }
+  }
+
   @else if $value-1 != $value-2 {
     @return false;
   }
