@@ -130,5 +130,15 @@
   @include it("should expect colors within rgb precision to be equal") {
     @include should(expect(rgb(212, 88, 54)), to(be(#d45836)));
     @include should(expect(rgb(212.0012, 88, 54)), to(be(#d45836)));
+    @include should(expect(rgba(212, 88, 54, 1)), to(be(#d45836)));
+    @include should(expect(rgba(212, 88, 54, 0.3)), not-to(be(#d45836)));
+    @include should(expect(rgba(123, 88, 54, 0.3)), to(be(rgba(123, 88, 54, 0.3))));
+    @include should(expect(rgba(212, 88, 53, 0.5)), to(be(hsla(13, 65%, 52%, 0.5))));
+    @include should(expect(rgba(212, 88, 53, 0.5)), not-to(be(rgba(212, 88, 53, 0.8))));
+    @include should(expect(rgba(#3d8c9b, .5)), not-to(be(#3d8c9b)));
+    @include should(expect(hsla(212, 88%, 54%, .5)), to(be(hsla(212, 88, 54, .5))));
+    @include should(expect(hsla(212, 88%, 54%, .5)), to(be(rgba(#2283f1, .5))));
+    @include should(expect(hsla(212, 88%, 54%, .5)), not-to(be(#2283f1)));
+    @include should(expect(hsla(212, 88%, 54%, .5)), not-to(be(#3d8c9b)));
   }
 }

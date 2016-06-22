@@ -3,3 +3,7 @@
 
   @return not $this;
 }
+
+@function to-not($this) {
+  @error "you probably meant `not-to` instead of `to-not`"
+}
